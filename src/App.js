@@ -6,12 +6,15 @@ import Login from './Pages/Login'
 
 
 import Home from './Pages/Home';
-import {AuthContext} from './store/Context';
+import {AuthContext,FirbaseContext} from './store/Context';
 
 function App() {
-  const {user}=useContext(AuthContext)
+  const {setUser}=useContext(AuthContext)
+  const {firbase}=useContext(FirbaseContext)
   useEffect(()=>{
-  console.log(user);
+firbase.auth().onAuthStateChanged((user)=>{
+  setUser(user)
+})
   })
   return (
     <div>
