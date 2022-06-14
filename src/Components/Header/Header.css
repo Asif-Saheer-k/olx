@@ -104,16 +104,19 @@
   text-overflow: ellipsis;
   font-weight: bolder;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .loginPage hr {
   margin: 0;
   background-color: black;
   height: 2px;
+
 }
 
 .loginPage a{
   text-decoration: none;
+ 
 }
 
 .sellMenu {

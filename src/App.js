@@ -4,9 +4,10 @@ import {BrowserRouter as Router , Route} from 'react-router-dom'
 import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import Create  from './Pages/Create'
-
+import View from './Pages/ViewPost'
 import Home from './Pages/Home';
 import {AuthContext,FirbaseContext} from './store/Context';
+import Post from './store/PostContext'
 
 function App() {
   const {setUser}=useContext(AuthContext)
@@ -18,6 +19,7 @@ firbase.auth().onAuthStateChanged((user)=>{
   })
   return (
     <div>
+      <Post>
     <Router>
       <Route exact path='/'>
       <Home />
@@ -28,13 +30,18 @@ firbase.auth().onAuthStateChanged((user)=>{
       <Route path='/login'>
         <Login></Login>
       </Route>
-      <Route path='/Create'>
+      <Route path='/create'>
         <Create/>
+      </Route>
+      
+      <Route path='/view'>
+       <View></View>
       </Route>
              
              
     
     </Router>
+    </Post>
    
     </div>
   );
